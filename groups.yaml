@@ -1,0 +1,5 @@
+light:
+  name: Light
+  entities:
+    - light.main
+    - light.lamp
