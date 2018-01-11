@@ -89,3 +89,6 @@ switch:
    lights:
      - light.main
      - light.lamp
+
+device_tracker:
+ - platform: bluetooth_tracker
