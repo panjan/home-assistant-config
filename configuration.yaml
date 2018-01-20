@@ -91,4 +91,5 @@ switch:
      - light.lamp
 
 device_tracker:
- - platform: bluetooth_tracker
+  - platform: bluetooth_tracker
+    track_new_devices: no
