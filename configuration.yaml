@@ -85,10 +85,10 @@ ios:
 device_sun_light_trigger:
 
 switch:
- - platform: flux
-   lights:
-     - light.main
-     - light.lamp
+  - platform: flux
+    lights:
+      - light.main
+      - light.lamp
 
 device_tracker:
   - platform: bluetooth_tracker
