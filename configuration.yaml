@@ -91,9 +91,5 @@ switch:
       - light.lamp
 
 device_tracker:
-  - platform: nmap_tracker
-    track_new_devices: true
-    consider_home: 666
-    hosts: 192.168.0.0/24 
   - platform: bluetooth_tracker
     track_new_devices: false
