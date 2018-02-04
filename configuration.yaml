@@ -60,6 +60,11 @@ sun:
 # Weather prediction
 sensor:
   - platform: yr
+  - platform: template
+    sensors:
+      alarm_time:
+        friendly_name: 'Time'
+        value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.alarmhour") | int, states("input_number.alarmminutes") | int) }}'
 
 # Text to speech
 tts:
@@ -93,3 +98,28 @@ switch:
 device_tracker:
   - platform: bluetooth_tracker
     track_new_devices: false
+
+input_number:
+  alarmhour:
+    name: Hours
+    icon: mdi:timer
+    initial: 8
+    min: 0
+    max: 23
+    step: 1
+  alarmminutes:
+    name: Minutes
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 59
+    step: 5
+
+input_boolean:
+  alarmweekday:
+    name: Workweek
+    initial: on
+    icon: mdi:calendar
+  alarmweekon:
+    name: Alarm
+    initial: on

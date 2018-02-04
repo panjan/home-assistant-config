@@ -3,3 +3,13 @@ light:
   entities:
     - light.main
     - light.lamp
+
+alarmclock:
+  name: Alarm
+  entities: 
+  #- input_boolean.freebox
+    - sensor.alarm_time
+    - input_number.alarmhour
+    - input_number.alarmminutes
+    - input_boolean.alarmweekday
+    - input_boolean.alarmweekon
