@@ -1,51 +1,20 @@
-- alias: "Wake me up with bedroom light transition for weekdays"
+- alias: "Wake me up with bedroom light transition"
   trigger:
     - platform: time
       minutes: '/1'
       seconds: 0
   condition:
     - condition: state
-      entity_id: input_boolean.alarmweekon
+      entity_id: input_boolean.alarm_on
       state: 'on'
-    - condition: state
-      entity_id: input_boolean.alarmweekday
-      state: 'on'
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
     - condition: template
       value_template: '{{ now().strftime("%H:%M") == states.sensor.alarm_time.state }}'
   action:
     - service: light.turn_on
-      entity_id: light.lamp
+      entity_id: group.light
       data:
-        transition: 600
-        brightness: 255
-- alias: "Wake me up with bedroom light transition for weekend days"
-  trigger:
-    - platform: time
-      minutes: '/1'
-      seconds: 0
-  condition:
-    - condition: state
-      entity_id: input_boolean.alarmweekon
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.alarmweekday
-      state: 'off'
-    - condition: time
-      weekday:
-        - sat
-        - sun
-    - condition: template
-      value_template: '{{ now().strftime("%H:%M") == states.sensor.alarm_time.state }}'
-  action:
-    service: light.turn_on
-    entity_id: light.lamp
-    data:
-      transition: 600
-      brightness: 255
+              #transition: 60
+        brightness: 1
+        rgb_color: [1,0,0]
+    - service: switch.turn_on
+      entity_id: switch.flux

@@ -77,7 +77,7 @@ script: !include scripts.yaml
 light:
   - platform: yeelight
     devices:
-      192.168.0.26:
+      192.168.0.13:
         name: Lamp
         # transition: 1000
         # use_music_mode: True #(defaults to False)
@@ -94,6 +94,7 @@ switch:
     lights:
       - light.main
       - light.lamp
+    transition: 300
 
 device_tracker:
   - platform: bluetooth_tracker
@@ -116,10 +117,7 @@ input_number:
     step: 5
 
 input_boolean:
-  alarmweekday:
-    name: Workweek
+  alarm_on:
+    name: Alarm on
     initial: on
     icon: mdi:calendar
-  alarmweekon:
-    name: Alarm
-    initial: on
