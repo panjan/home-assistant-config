@@ -57,7 +57,6 @@ map:
 # Track the sun
 sun:
 
-# Weather prediction
 sensor:
   - platform: yr
   - platform: template
@@ -65,6 +64,13 @@ sensor:
       alarm_time:
         friendly_name: 'Time'
         value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.alarmhour") | int, states("input_number.alarmminutes") | int) }}'
+
+
+#binary_sensor:
+#  - platform: mqtt
+#    state_topic: 'home/living_room/window'
+#    name: 'Living Room Window'
+#
 
 # Text to speech
 tts:
@@ -77,13 +83,13 @@ script: !include scripts.yaml
 light:
   - platform: yeelight
     devices:
-      192.168.0.13:
+      192.168.0.10:
         name: Lamp
         # transition: 1000
         # use_music_mode: True #(defaults to False)
         # save_on_change: False #(defaults to True)
-      192.168.0.27:
-        name: Main
+      192.168.0.11:
+        name: Living Room
 
 ios:
 
@@ -94,7 +100,12 @@ switch:
     lights:
       - light.main
       - light.lamp
-    transition: 300
+    transition: 100
+  - platform: mqtt
+    command_topic: 'home/button'
+    state_topic: 'home/button'
+    optimistic: true
+    name: 'Button'
 
 device_tracker:
   - platform: bluetooth_tracker

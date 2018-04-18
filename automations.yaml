@@ -18,3 +18,10 @@
         rgb_color: [1,0,0]
     - service: switch.turn_on
       entity_id: switch.flux
+- alias: Toggle button status using button
+  trigger:
+    platform: mqtt
+    topic: home/button/toggle
+  action:
+    service: switch.toggle
+    entity_id: switch.button
