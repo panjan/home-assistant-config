@@ -98,7 +98,7 @@ device_sun_light_trigger:
 switch:
   - platform: flux
     lights:
-      - light.main
+      - light.living_room
       - light.lamp
     transition: 100
   - platform: mqtt
@@ -107,9 +107,9 @@ switch:
     optimistic: true
     name: 'Button'
 
-device_tracker:
-  - platform: bluetooth_tracker
-    track_new_devices: false
+    #device_tracker:
+    #- platform: bluetooth_tracker
+    #track_new_devices: false
 
 input_number:
   alarmhour:

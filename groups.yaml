@@ -1,7 +1,7 @@
 light:
   name: Light
   entities:
-    - light.main
+    - light.living_room
     - light.lamp
 
 alarmclock:
