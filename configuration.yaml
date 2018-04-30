@@ -140,3 +140,8 @@ input_boolean:
     name: Alarm on
     initial: on
     icon: mdi:calendar
+
+media_player:
+  - platform: webostv
+    host: !secret tv_ip
+    name: Living Room TV
