@@ -106,7 +106,15 @@ switch:
     state_topic: 'home/button'
     optimistic: true
     name: 'Button'
-
+  - platform: broadlink
+    host: !secret ir_switch_ip
+    mac: !secret ir_switch_mac
+    friendly_name: 'IR Switch'
+    switches:
+      speakers:
+        friendly_name: 'Speakers'
+        command_on: 'JgBQAAABKZQTOBITEhQSExI4EhQSExITEhQSOBI4EjkSExI5EjgSOBMTEjgSORI4EhMSFBITEjgTOBITEhQSExI4EjkSOBITEgAFHAABKEsSAA0FAAAAAAAAAAA='
+        command_off: 'JgBQAAABKZQTOBITEhQSExI4EhQSExITEhQSOBI4EjkSExI5EjgSOBMTEjgSORI4EhMSFBITEjgTOBITEhQSExI4EjkSOBITEgAFHAABKEsSAA0FAAAAAAAAAAA='
     #device_tracker:
     #- platform: bluetooth_tracker
     #track_new_devices: false

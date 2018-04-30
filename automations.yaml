@@ -19,7 +19,7 @@
     - service: switch.turn_on
       entity_id: switch.flux
 
-- alias: Turn lights ON if currently OFF
+- alias: Turn home ON if currently OFF
   trigger:
     platform: mqtt
     topic: home/button/toggle
@@ -30,8 +30,10 @@
   action:
     - service: light.turn_on
       entity_id: group.all_lights
+    - service: switch.toggle
+      entity_id: switch.speakers
 
-- alias: Turn lights OFF if currently ON
+- alias: Turn home OFF if currently ON
   trigger:
     platform: mqtt
     topic: home/button/toggle
@@ -42,3 +44,5 @@
   action:
     - service: light.turn_off
       entity_id: group.all_lights
+    - service: switch.toggle
+      entity_id: switch.speakers
