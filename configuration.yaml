@@ -127,32 +127,6 @@ switch:
         command_on: 'JgDGAFcdEA4PDg8cDxwtHBAODw4PDg8ODw4PDg8ODw4PDg8OHg4PDg8ODw4PDg8ODw4PHB4cEA4PDg8OHhweHB4cEAAI0FgdDw4PDg8dDxwtHA8ODw4PDg8ODw4PDg8OEA0QDg8OHQ4PDg8OEA0QDRAODw4PHB4cDw4QDRAOHRweHB4dDwAI0VcdEA0QDg8cDxwtHBANEA4PDg8ODw4PDg8ODw4PDg8OHg4PDg8ODw4PDg8ODw4PHB4cEA4PDg8OHhweHB4cEAANBQAA'
         command_off: 'JgDAAFceDRAPDg8cDx0sHBAODw4PDg8ODw4PDg8ODw4PDg8OHg4PDg0QDxweDg8ODx0dHQ8ODw4PDh0dHB4PDhwACOJXHQ4PDw4PHQ8cLRwQDQ4PDg8OEA4PDg8ODw4PDw4ODx0PDg8ODw4dHg4ODw4dHh0ODw4PDg8cHh0dDg8dAAjgWBwQDg8ODxwQHCwcEA4PDg8ODw4PDg8ODw4PDg8ODw4eDg8ODw4PHB4ODw4QHB4cDw4PDg8OHhweHBAOHQANBQAAAAAAAAAA'
 
-    #device_tracker:
-    #- platform: bluetooth_tracker
-    #track_new_devices: false
-
-input_number:
-  alarmhour:
-    name: Hours
-    icon: mdi:timer
-    initial: 8
-    min: 0
-    max: 23
-    step: 1
-  alarmminutes:
-    name: Minutes
-    icon: mdi:timer
-    initial: 0
-    min: 0
-    max: 59
-    step: 5
-
-input_boolean:
-  alarm_on:
-    name: Alarm on
-    initial: on
-    icon: mdi:calendar
-
 wake_on_lan:
 
 media_player:

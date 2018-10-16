@@ -4,15 +4,6 @@ light:
     - light.light_1
     - light.light_2
 
-alarmclock:
-  name: Alarm
-  entities: 
-  #- input_boolean.freebox
-    - sensor.alarm_time
-    - input_number.alarmhour
-    - input_number.alarmminutes
-    - input_boolean.alarm_on
- 
 everything:
   name: Everything
   entities: 
