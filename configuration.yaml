@@ -22,6 +22,25 @@ frontend:
 # Enables configuration UI
 config:
 
+# Enable hass cloud for alexa
+cloud:
+        #  alexa:
+        #    smart_home:
+        #      filter:
+        #        include_entities:
+        #          - light.kitchen
+        #          - light.kitchen_left
+        #        include_domains:
+        #          - switch
+        #        exclude_entities:
+        #          - switch.outside
+        #      entity_config:
+        #        light.kitchen:
+        #          name: Custom Name for Alexa
+        #          description: The light in the kitchen
+        #        switch.stairs:
+        #          display_categories: LIGHT
+
 http:
   # Secrets are defined in the file secrets.yaml
   api_password: !secret api_password
@@ -57,6 +76,9 @@ map:
 # Track the sun
 sun:
 
+mqtt:
+  broker: core-mosquitto
+
 sensor:
   - platform: yr
   - platform: template
@@ -64,13 +86,15 @@ sensor:
       alarm_time:
         friendly_name: 'Time'
         value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.alarmhour") | int, states("input_number.alarmminutes") | int) }}'
+  - platform: mqtt
+    state_topic: "home/living_room/window/battery"
+    name: 'Living Room Window Battery'
+    unit_of_measurement: 'V'
 
-
-#binary_sensor:
-#  - platform: mqtt
-#    state_topic: 'home/living_room/window'
-#    name: 'Living Room Window'
-#
+binary_sensor:
+  - platform: mqtt
+    state_topic: 'home/living_room/window'
+    name: 'Living Room Window'
 
 # Text to speech
 tts:
@@ -84,12 +108,12 @@ light:
   - platform: yeelight
     devices:
       192.168.0.10:
-        name: Lamp
+        name: Light 1
         # transition: 1000
         # use_music_mode: True #(defaults to False)
-        # save_on_change: False #(defaults to True)
+        # save_on_change: false #(defaults to True)
       192.168.0.11:
-        name: Living Room
+        name: Light 2
 
 ios:
 
@@ -98,14 +122,13 @@ device_sun_light_trigger:
 switch:
   - platform: flux
     lights:
-      - light.living_room
-      - light.lamp
-    transition: 100
-  - platform: mqtt
-    command_topic: 'home/button'
-    state_topic: 'home/button'
-    optimistic: true
-    name: 'Button'
+      - group.light
+    transition: 3
+    #  - platform: mqtt
+    #    command_topic: 'home/button'
+    #    state_topic: 'home/button'
+    #    optimistic: true
+    #    name: 'Button'
   - platform: broadlink
     host: !secret ir_switch_ip
     mac: !secret ir_switch_mac
@@ -113,8 +136,13 @@ switch:
     switches:
       speakers:
         friendly_name: 'Speakers'
-        command_on: 'JgBQAAABKZQTOBITEhQSExI4EhQSExITEhQSOBI4EjkSExI5EjgSOBMTEjgSORI4EhMSFBITEjgTOBITEhQSExI4EjkSOBITEgAFHAABKEsSAA0FAAAAAAAAAAA='
-        command_off: 'JgBQAAABKZQTOBITEhQSExI4EhQSExITEhQSOBI4EjkSExI5EjgSOBMTEjgSORI4EhMSFBITEjgTOBITEhQSExI4EjkSOBITEgAFHAABKEsSAA0FAAAAAAAAAAA='
+        command_on: 'JgBwAAABKZQTOBMSEhMTExI4EhQSExITEhQSOBI4EzgSExI5EzcSORITEjgSORI4EhQSExITEjkSOBIUEhMSExI5EjgSOBMTEgAFHAABKUoSAAxjAAEpShMADGEAASpKEwAMYQABKUoTAAxiAAEpShMADQUAAAAAAAAAAA=='
+        command_off: 'JgBwAAABKZQTOBMSEhMTExI4EhQSExITEhQSOBI4EzgSExI5EzcSORITEjgSORI4EhQSExITEjkSOBIUEhMSExI5EjgSOBMTEgAFHAABKUoSAAxjAAEpShMADGEAASpKEwAMYQABKUoTAAxiAAEpShMADQUAAAAAAAAAAA=='
+      xbox:
+        friendly_name: 'Xbox'
+        command_on: 'JgDGAFcdEA4PDg8cDxwtHBAODw4PDg8ODw4PDg8ODw4PDg8OHg4PDg8ODw4PDg8ODw4PHB4cEA4PDg8OHhweHB4cEAAI0FgdDw4PDg8dDxwtHA8ODw4PDg8ODw4PDg8OEA0QDg8OHQ4PDg8OEA0QDRAODw4PHB4cDw4QDRAOHRweHB4dDwAI0VcdEA0QDg8cDxwtHBANEA4PDg8ODw4PDg8ODw4PDg8OHg4PDg8ODw4PDg8ODw4PHB4cEA4PDg8OHhweHB4cEAANBQAA'
+        command_off: 'JgDAAFceDRAPDg8cDx0sHBAODw4PDg8ODw4PDg8ODw4PDg8OHg4PDg0QDxweDg8ODx0dHQ8ODw4PDh0dHB4PDhwACOJXHQ4PDw4PHQ8cLRwQDQ4PDg8OEA4PDg8ODw4PDw4ODx0PDg8ODw4dHg4ODw4dHh0ODw4PDg8cHh0dDg8dAAjgWBwQDg8ODxwQHCwcEA4PDg8ODw4PDg8ODw4PDg8ODw4eDg8ODw4PHB4ODw4QHB4cDw4PDg8OHhweHBAOHQANBQAAAAAAAAAA'
+
     #device_tracker:
     #- platform: bluetooth_tracker
     #track_new_devices: false
@@ -141,7 +169,41 @@ input_boolean:
     initial: on
     icon: mdi:calendar
 
+wake_on_lan:
+
 media_player:
   - platform: webostv
     host: !secret tv_ip
     name: Living Room TV
+    turn_on_action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret tv_mac
+      - service: media_player.select_source
+        data:
+          source: HDMI1
+  - platform: kodi
+    host: !secret kodi_ip
+
+scene:
+  - name: Romantic
+    entities:
+      group.light:
+        state: on
+        transition: 3
+        hs_color: [345, 100]
+        brightness_pct: 50
+  - name: White
+    entities:
+      group.light:
+        state: on
+        transition: 3
+        color_temp: 184
+        brightness_pct: 100
+  - name: Yellow
+    entities:
+      group.light:
+        state: on
+        transition: 3
+        color_temp: 325
+        brightness_pct: 100

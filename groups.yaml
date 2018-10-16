@@ -1,8 +1,8 @@
 light:
-  name: Light
+  name: Lights
   entities:
-    - light.living_room
-    - light.lamp
+    - light.light_1
+    - light.light_2
 
 alarmclock:
   name: Alarm
@@ -12,3 +12,10 @@ alarmclock:
     - input_number.alarmhour
     - input_number.alarmminutes
     - input_boolean.alarm_on
+ 
+everything:
+  name: Everything
+  entities: 
+    - group.light
+    - switch.speakers
+    - media_player.living_room_tv
