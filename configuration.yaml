@@ -70,23 +70,43 @@ sensor:
     name: 'Living Room Window Battery'
     unit_of_measurement: 'V'
   - platform: mqtt
-    name: "Energy"
+    name: "Sonoff 1 Energy"
     state_topic: "tele/sonoff1/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Today"] }}'
     unit_of_measurement: "kWh"
   - platform: mqtt
-    name: "Power"
+    name: "Sonoff 1 Power"
     state_topic: "tele/sonoff1/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Power"] }}'
     unit_of_measurement: "W"
   - platform: mqtt
-    name: "Voltage"
+    name: "Sonoff 1 Voltage"
     state_topic: "tele/sonoff1/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
     unit_of_measurement: "V"
   - platform: mqtt
-    name: "Current"
+    name: "Sonoff 1 Current"
     state_topic: "tele/sonoff1/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "A"
+  - platform: mqtt
+    name: "Sonoff 2 Energy"
+    state_topic: "tele/sonoff2/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+  - platform: mqtt
+    name: "Sonoff 2 Power"
+    state_topic: "tele/sonoff2/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "W"
+  - platform: mqtt
+    name: "Sonoff 2 Voltage"
+    state_topic: "tele/sonoff2/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "V"
+  - platform: mqtt
+    name: "Sonoff 2 Current"
+    state_topic: "tele/sonoff2/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Current"] }}'
     unit_of_measurement: "A"
 
@@ -129,10 +149,22 @@ switch:
     #    optimistic: true
     #    name: 'Button'
   - platform: mqtt
-    name: "Sonoff1 power"
+    name: "Sonoff1"
     state_topic: "stat/sonoff1/POWER"
     command_topic: "cmnd/sonoff1/POWER"
     availability_topic: "tele/sonoff1/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true
+    optimistic: true
+  - platform: mqtt
+    name: "Sonoff2"
+    state_topic: "stat/sonoff2/POWER"
+    command_topic: "cmnd/sonoff2/POWER"
+    availability_topic: "tele/sonoff2/LWT"
     qos: 1
     payload_on: "ON"
     payload_off: "OFF"
