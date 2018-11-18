@@ -139,6 +139,7 @@ switch:
     payload_available: "Online"
     payload_not_available: "Offline"
     retain: true
+    optimistic: true
   - platform: broadlink
     host: !secret ir_switch_ip
     mac: !secret ir_switch_mac
