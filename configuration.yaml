@@ -25,6 +25,11 @@ config:
 # Enable hass cloud for alexa
 cloud:
 
+logger:
+  default: debug
+
+system_log:
+
 http:
   # Secrets are defined in the file secrets.yaml
   api_password: !secret api_password
@@ -110,22 +115,22 @@ sensor:
     value_template: '{{ value_json["ENERGY"]["Current"] }}'
     unit_of_measurement: "A"
   - platform: mqtt
-    name: "Sonoff 3 Energy"
+    name: "Living Room Heating Energy"
     state_topic: "tele/sonoff3/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Today"] }}'
     unit_of_measurement: "kWh"
   - platform: mqtt
-    name: "Sonoff 3 Power"
+    name: "Living Room Heating Power"
     state_topic: "tele/sonoff3/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Power"] }}'
     unit_of_measurement: "W"
   - platform: mqtt
-    name: "Sonoff 3 Voltage"
+    name: "Living Room Heating Voltage"
     state_topic: "tele/sonoff3/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
     unit_of_measurement: "V"
   - platform: mqtt
-    name: "Sonoff 3 Current"
+    name: "Living Room Heating Current"
     state_topic: "tele/sonoff3/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Current"] }}'
     unit_of_measurement: "A"
@@ -187,7 +192,7 @@ switch:
     retain: true
     optimistic: true
   - platform: mqtt
-    name: "Sonoff3"
+    name: "Living Room Heating"
     state_topic: "stat/sonoff3/POWER"
     command_topic: "cmnd/sonoff3/POWER"
     qos: 1

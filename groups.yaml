@@ -10,3 +10,36 @@ everything:
     - group.light
     - switch.speakers
     - media_player.living_room_tv
+
+sensors:
+  name: Sensors
+  view: true
+  entities:
+    - sensor.sonoff_1_current
+    - sensor.sonoff_1_voltage
+    - sensor.sonoff_1_power
+    - sensor.sonoff_1_energy
+    - sensor.sonoff_2_current
+    - sensor.sonoff_2_voltage
+    - sensor.sonoff_2_power
+    - sensor.sonoff_2_energy
+    - sensor.living_room_heating_current
+    - sensor.living_room_heating_voltage
+    - sensor.living_room_heating_power
+    - sensor.living_room_heating_energy
+
+default_view:
+  name: Home
+  view: true
+  icon: mdi:home-assistant
+  entities:
+    - group.everything
+    - group.light
+    - group.all_switches
+    - media_player.kodi
+    - media_player.living_room_tv
+    - scene.romantic
+    - scene.white
+    - scene.yellow
+    - switch.living_room_heating
+    - switch.xbox
