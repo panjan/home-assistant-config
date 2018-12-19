@@ -75,22 +75,22 @@ sensor:
     name: 'Living Room Window Battery'
     unit_of_measurement: 'V'
   - platform: mqtt
-    name: "Sonoff 1 Energy"
+    name: "Bedroom Heating Energy"
     state_topic: "tele/sonoff1/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Today"] }}'
     unit_of_measurement: "kWh"
   - platform: mqtt
-    name: "Sonoff 1 Power"
+    name: "Bedroom Heating Power"
     state_topic: "tele/sonoff1/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Power"] }}'
     unit_of_measurement: "W"
   - platform: mqtt
-    name: "Sonoff 1 Voltage"
+    name: "Bedroom Heating Voltage"
     state_topic: "tele/sonoff1/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
     unit_of_measurement: "V"
   - platform: mqtt
-    name: "Sonoff 1 Current"
+    name: "Bedroom Heating Current"
     state_topic: "tele/sonoff1/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Current"] }}'
     unit_of_measurement: "A"
@@ -174,7 +174,7 @@ switch:
     #    optimistic: true
     #    name: 'Button'
   - platform: mqtt
-    name: "Sonoff1"
+    name: "Bedroom Heating"
     state_topic: "stat/sonoff1/POWER"
     command_topic: "cmnd/sonoff1/POWER"
     qos: 1

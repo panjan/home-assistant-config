@@ -15,10 +15,10 @@ sensors:
   name: Sensors
   view: true
   entities:
-    - sensor.sonoff_1_current
-    - sensor.sonoff_1_voltage
-    - sensor.sonoff_1_power
-    - sensor.sonoff_1_energy
+    - sensor.bedroom_heating_current
+    - sensor.bedroom_heating_voltage
+    - sensor.bedroom_heating_power
+    - sensor.bedroom_heating_energy
     - sensor.sonoff_2_current
     - sensor.sonoff_2_voltage
     - sensor.sonoff_2_power
@@ -42,4 +42,5 @@ default_view:
     - scene.white
     - scene.yellow
     - switch.living_room_heating
+    - switch.bedroom_heating
     - switch.xbox
