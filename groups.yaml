@@ -44,3 +44,4 @@ default_view:
     - switch.living_room_heating
     - switch.bedroom_heating
     - switch.xbox
+    - switch.volume
