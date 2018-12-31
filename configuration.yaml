@@ -30,13 +30,13 @@ logger:
 
 system_log:
 
-http:
-  # Secrets are defined in the file secrets.yaml
-  api_password: !secret api_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  base_url: !secret domain
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
+        #http:
+        #  # Secrets are defined in the file secrets.yaml
+        #  api_password: !secret api_password
+        #  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+        #  base_url: !secret domain
+        #  ssl_certificate: /ssl/fullchain.pem
+        #  ssl_key: /ssl/privkey.pem
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -66,7 +66,9 @@ map:
 sun:
 
 mqtt:
-  broker: core-mosquitto
+  password: !secret mqtt_password
+
+        #  broker: core-mosquitto
 
 sensor:
   - platform: yr
@@ -161,8 +163,6 @@ light:
 
 ios:
 
-device_sun_light_trigger:
-
 switch:
   - platform: flux
     lights:
@@ -256,3 +256,7 @@ scene:
         transition: 3
         color_temp: 325
         brightness_pct: 100
+
+duckdns:
+  domain: !secret duckdns_domain
+  access_token: !secret duckdns_access_token

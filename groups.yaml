@@ -39,7 +39,7 @@ default_view:
     - media_player.kodi
     - media_player.living_room_tv
     - scene.romantic
-    - scene.white
+    - scene.bright
     - scene.yellow
     - switch.living_room_heating
     - switch.bedroom_heating
