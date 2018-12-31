@@ -68,8 +68,6 @@ sun:
 mqtt:
   password: !secret mqtt_password
 
-        #  broker: core-mosquitto
-
 sensor:
   - platform: yr
   - platform: mqtt
