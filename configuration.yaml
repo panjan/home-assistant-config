@@ -66,6 +66,9 @@ map:
 sun:
 
 mqtt:
+  broker: localhost
+  port: !secret mqtt_port
+  username: !secret mqtt_username
   password: !secret mqtt_password
 
 sensor:
