@@ -255,3 +255,7 @@ scene:
 duckdns:
   domain: !secret duckdns_domain
   access_token: !secret duckdns_access_token
+
+camera:
+  - platform: ffmpeg
+    input: !secret camera_input

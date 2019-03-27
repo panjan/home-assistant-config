@@ -45,3 +45,4 @@ default_view:
     - switch.bedroom_heating
     - switch.xbox
     - switch.volume
+    - camera.ffmpeg
