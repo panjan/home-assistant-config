@@ -175,7 +175,6 @@ switch:
     name: "Bedroom Heating"
     state_topic: "stat/sonoff1/POWER"
     command_topic: "cmnd/sonoff1/POWER"
-    qos: 1
     payload_on: "ON"
     payload_off: "OFF"
     retain: true
@@ -184,7 +183,6 @@ switch:
     name: "Sonoff2"
     state_topic: "stat/sonoff2/POWER"
     command_topic: "cmnd/sonoff2/POWER"
-    qos: 1
     payload_on: "ON"
     payload_off: "OFF"
     retain: true
@@ -193,7 +191,6 @@ switch:
     name: "Living Room Heating"
     state_topic: "stat/sonoff3/POWER"
     command_topic: "cmnd/sonoff3/POWER"
-    qos: 1
     payload_on: "ON"
     payload_off: "OFF"
     retain: true
