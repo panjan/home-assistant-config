@@ -30,13 +30,10 @@ logger:
 
 system_log:
 
-        #http:
-        #  # Secrets are defined in the file secrets.yaml
-        #  api_password: !secret api_password
-        #  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-        #  base_url: !secret domain
-        #  ssl_certificate: /ssl/fullchain.pem
-        #  ssl_key: /ssl/privkey.pem
+http:
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+  base_url: !secret base_url
 
 # Checks for available updates
 # Note: This component will send some information about your system to
