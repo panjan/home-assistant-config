@@ -30,6 +30,8 @@ logger:
 
 system_log:
 
+system_health:
+
 http:
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
