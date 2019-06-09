@@ -26,7 +26,7 @@ config:
 cloud:
 
 logger:
-  default: debug
+        #default: debug
 
 system_log:
 
@@ -142,14 +142,17 @@ binary_sensor:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
-light:
-  - platform: yeelight
+discovery:
+  ignore:
+    - yeelight
+yeelight:
     devices:
       192.168.0.10:
         name: Light 1
