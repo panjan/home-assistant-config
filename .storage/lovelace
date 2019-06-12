@@ -1,0 +1,128 @@
+{
+    "data": {
+        "config": {
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "group.light",
+                                "switch.speakers"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Everything",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "media_player.living_room_tv",
+                            "type": "media-control"
+                        },
+                        {
+                            "entities": [
+                                "light.light_1",
+                                "light.light_2"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "camera.ffmpeg",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entities": [
+                                "scene.romantic",
+                                "scene.bright",
+                                "scene.yellow"
+                            ],
+                            "title": "Scene",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "switch.living_room_heating",
+                                "switch.bedroom_heating",
+                                "switch.xbox",
+                                "switch.volume"
+                            ],
+                            "title": "Switch",
+                            "type": "entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "script.kodi_on",
+                                    "icon": "mdi:youtube-tv",
+                                    "name": "Kodi",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.turn_on",
+                                        "service_data": {
+                                            "entity_id": "script.kodi_on"
+                                        }
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "script.live_tv_on",
+                                    "icon": "mdi:television-classic",
+                                    "name": "Live TV",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.turn_on",
+                                        "service_data": {
+                                            "entity_id": "script.live_tv_on"
+                                        }
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "media_player.living_room_tv",
+                                    "icon": "mdi:playstation",
+                                    "name": "Playstation",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "media_player.select_source",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "source": "HDMI2"
+                                        }
+                                    },
+                                    "type": "entity-button"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        }
+                    ],
+                    "icon": "mdi:home-assistant",
+                    "path": "default_view",
+                    "title": "Home"
+                },
+                {
+                    "badges": [
+                        "sensor.bedroom_heating_current",
+                        "sensor.bedroom_heating_voltage",
+                        "sensor.bedroom_heating_power",
+                        "sensor.bedroom_heating_energy",
+                        "sensor.sonoff_2_current",
+                        "sensor.sonoff_2_voltage",
+                        "sensor.sonoff_2_power",
+                        "sensor.sonoff_2_energy",
+                        "sensor.living_room_heating_current",
+                        "sensor.living_room_heating_voltage",
+                        "sensor.living_room_heating_power",
+                        "sensor.living_room_heating_energy"
+                    ],
+                    "cards": [],
+                    "path": "sensors",
+                    "title": "Sensors"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}
