@@ -1,0 +1,24 @@
+live_tv_on:
+  sequence:
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.living_room_tv
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.living_room_tv
+        source: Live TV
+    - service: switch.turn_on
+      data:
+        entity_id: switch.optical
+kodi_on:
+  sequence:
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.living_room_tv
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.living_room_tv
+        source: HDMI1
+    - service: switch.turn_on
+      data:
+        entity_id: switch.optical

@@ -24,6 +24,14 @@ config:
 
 # Enable hass cloud for alexa
 cloud:
+  alexa:
+    entity_config:
+      script.kodi_on:
+        name: Kodi
+        description: Turns on Kodi
+      script.live_tv_on:
+        name: Live TV
+        description: Turns on Live TV
 
 logger:
         #default: debug
@@ -239,8 +247,8 @@ media_player:
       - service: media_player.select_source
         data:
           source: HDMI1
-  - platform: kodi
-    host: !secret kodi_ip
+          #  - platform: kodi
+          #    host: !secret kodi_ip
 
 scene:
   - name: Romantic
