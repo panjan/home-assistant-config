@@ -16,7 +16,7 @@
                             "type": "entities"
                         },
                         {
-                            "entity": "media_player.living_room_tv",
+                            "entity": "media_player.tv",
                             "type": "media-control"
                         },
                         {
@@ -82,14 +82,14 @@
                                     "type": "entity-button"
                                 },
                                 {
-                                    "entity": "media_player.living_room_tv",
+                                    "entity": "media_player.tv",
                                     "icon": "mdi:playstation",
                                     "name": "PS",
                                     "tap_action": {
                                         "action": "call-service",
                                         "service": "media_player.select_source",
                                         "service_data": {
-                                            "entity_id": "media_player.living_room_tv",
+                                            "entity_id": "media_player.tv",
                                             "source": "HDMI2"
                                         }
                                     },

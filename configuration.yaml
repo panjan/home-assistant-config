@@ -239,7 +239,7 @@ wake_on_lan:
 media_player:
   - platform: webostv
     host: !secret tv_ip
-    name: Living Room TV
+    name: TV
     turn_on_action:
       - service: wake_on_lan.send_magic_packet
         data:

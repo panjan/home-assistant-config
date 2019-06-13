@@ -9,7 +9,7 @@ everything:
   entities: 
     - group.light
     - switch.speakers
-    - media_player.living_room_tv
+    - media_player.tv
 
 sensors:
   name: Sensors
@@ -37,7 +37,7 @@ default_view:
     - group.light
     - group.all_switches
     - media_player.kodi
-    - media_player.living_room_tv
+    - media_player.tv
     - scene.romantic
     - scene.bright
     - scene.yellow
@@ -46,3 +46,4 @@ default_view:
     - switch.xbox
     - switch.volume
     - camera.ffmpeg
+    - media_player.playstation_4
