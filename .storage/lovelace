@@ -43,10 +43,12 @@
                         },
                         {
                             "entities": [
-                                "switch.living_room_heating",
-                                "switch.bedroom_heating",
-                                "switch.xbox",
-                                "switch.volume"
+                                {
+                                    "entity": "switch.living_room_heating"
+                                },
+                                {
+                                    "entity": "switch.bedroom_heating"
+                                }
                             ],
                             "title": "Switch",
                             "type": "entities"
@@ -82,13 +84,39 @@
                                 {
                                     "entity": "media_player.living_room_tv",
                                     "icon": "mdi:playstation",
-                                    "name": "Playstation",
+                                    "name": "PS",
                                     "tap_action": {
                                         "action": "call-service",
                                         "service": "media_player.select_source",
                                         "service_data": {
                                             "entity_id": "media_player.living_room_tv",
                                             "source": "HDMI2"
+                                        }
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "switch.volume",
+                                    "icon": "mdi:volume-plus",
+                                    "name": "Up",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "switch.turn_on",
+                                        "service_data": {
+                                            "entity_id": "switch.volume"
+                                        }
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "switch.volume",
+                                    "icon": "mdi:volume-minus",
+                                    "name": "Down",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "switch.turn_off",
+                                        "service_data": {
+                                            "entity_id": "switch.volume"
                                         }
                                     },
                                     "type": "entity-button"
