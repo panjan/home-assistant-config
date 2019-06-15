@@ -97,6 +97,19 @@
                                 },
                                 {
                                     "entity": "switch.volume",
+                                    "icon": "mdi:volume-minus",
+                                    "name": "Down",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "switch.turn_off",
+                                        "service_data": {
+                                            "entity_id": "switch.volume"
+                                        }
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "switch.volume",
                                     "icon": "mdi:volume-plus",
                                     "name": "Up",
                                     "tap_action": {
@@ -109,14 +122,14 @@
                                     "type": "entity-button"
                                 },
                                 {
-                                    "entity": "switch.volume",
-                                    "icon": "mdi:volume-minus",
-                                    "name": "Down",
+                                    "entity": "switch.usb",
+                                    "icon": "mdi:speaker",
+                                    "name": "USB",
                                     "tap_action": {
                                         "action": "call-service",
-                                        "service": "switch.turn_off",
+                                        "service": "switch.turn_on",
                                         "service_data": {
-                                            "entity_id": "switch.volume"
+                                            "entity_id": "switch.usb"
                                         }
                                     },
                                     "type": "entity-button"
