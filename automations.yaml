@@ -13,6 +13,15 @@
       entity_id: media_player.tv
       data:
         source: HDMI2
+- alias: playstation off when everything off
+  initial_state: true
+  trigger: 
+    platform: state
+    entity_id: group.everything
+    to: 'off'
+  action:
+    - service: media_player.turn_off
+      entity_id: media_player.playstation_4
 - alias: Speakers on routine
   hide_entity: true
   initial_state: true

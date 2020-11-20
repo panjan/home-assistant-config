@@ -81,6 +81,16 @@ mqtt:
 sensor:
   - platform: yr
   - platform: mqtt
+    state_topic: "tele/thermometer/SENSOR"
+    name: 'Temperature'
+    unit_of_measurement: 'C'
+    value_template: '{{ value_json["DHT11"]["Temperature"] }}'
+  - platform: mqtt
+    state_topic: "tele/thermometer/SENSOR"
+    name: 'Humidity'
+    unit_of_measurement: '%'
+    value_template: '{{ value_json["DHT11"]["Humidity"] }}'
+  - platform: mqtt
     state_topic: "home/living_room/window/battery"
     name: 'Living Room Window Battery'
     unit_of_measurement: 'V'

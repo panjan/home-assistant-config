@@ -144,18 +144,10 @@
                 },
                 {
                     "badges": [
-                        "sensor.bedroom_heating_current",
-                        "sensor.bedroom_heating_voltage",
                         "sensor.bedroom_heating_power",
-                        "sensor.bedroom_heating_energy",
-                        "sensor.sonoff_2_current",
-                        "sensor.sonoff_2_voltage",
-                        "sensor.sonoff_2_power",
-                        "sensor.sonoff_2_energy",
-                        "sensor.living_room_heating_current",
-                        "sensor.living_room_heating_voltage",
                         "sensor.living_room_heating_power",
-                        "sensor.living_room_heating_energy"
+                        "sensor.temperature",
+                        "sensor.humidity"
                     ],
                     "cards": [],
                     "path": "sensors",
